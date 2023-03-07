@@ -87,7 +87,7 @@ class MainWindow(QMainWindow):
 
     def check(self):
         for i in range(0 , 9):
-            i= 0
+            #i= 0
             x = 0
             num1 = self.line_edits[i][x].text()                 
             if num1!= None :
@@ -115,7 +115,7 @@ class MainWindow(QMainWindow):
                                 self.line_edits[i][x].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
 
         for j in range(0 , 9):
-            j= 0
+            #j= 0
             x = 0
             num1 = self.line_edits[x][j].text()                 
             if num1!= None :
@@ -141,28 +141,6 @@ class MainWindow(QMainWindow):
                                 #return False
                             else :
                                 self.line_edits[x][j].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
-
-
-
-
-
-
-            # i = 0 
-            # #j = n = 1 , 2, ... , 9
-            # for n in range(1 , 8):
-            #     for j in list(range(0 , n)) + list(range(n+1 , 9)) :
-            #         num1 = self.line_edits[i][n].text() #first cell 
-            #         other_numbers_in_row = self.line_edits[i][j].text() # neghbours of first cell in that row
-            #         print(f"{num1} + {other_numbers_in_row}")
-            #         if num1 == other_numbers_in_row  and  other_numbers_in_row != None and num1 != None :
-            #             self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
-            #             return False
-
-            #         else :
-            #             self.line_edits[i][j].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
-
-
-
 
 
 
