@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>834</width>
-    <height>632</height>
+    <width>531</width>
+    <height>538</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,46 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>451</width>
-      <height>441</height>
+      <x>60</x>
+      <y>30</y>
+      <width>411</width>
+      <height>371</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="grid_Layout"/>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>430</y>
+      <width>411</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(80, 71, 80);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Dark Mode 🌚</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Light Mode 💡</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -31,7 +64,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>834</width>
+     <width>531</width>
      <height>26</height>
     </rect>
    </property>
@@ -41,8 +74,24 @@
     </property>
     <addaction name="menu_new"/>
     <addaction name="menu_openfile"/>
+    <addaction name="actionSolve_Table"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout_Game"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp"/>
    </widget>
    <addaction name="menuGame"/>
+   <addaction name="menuAbout"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="menu_new">
@@ -53,6 +102,26 @@
   <action name="menu_openfile">
    <property name="text">
     <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionSolve_Table">
+   <property name="text">
+    <string>Solve Table </string>
+   </property>
+  </action>
+  <action name="actionAbout_Game">
+   <property name="text">
+    <string>About Game...</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help !</string>
    </property>
   </action>
  </widget>
