@@ -6,5 +6,5 @@
  
  
 > + Dark mode :
-## ![This is an image](https://github.com/kiana-jahanshid/SUDOKU-GAME/blob/main/pics/dark%20mode.png)
+## ![This is an image](https://github.com/kiana-jahanshid/SUDOKU-GAME/blob/main/pics/2.png)
 
