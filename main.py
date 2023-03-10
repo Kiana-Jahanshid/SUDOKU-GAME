@@ -12,8 +12,9 @@ from main_window import Ui_MainWindow
 class MainWindow(QMainWindow):
     def __init__(self ):
         super().__init__()
-        global font  , cell_font , selected_mode
+        global font  , cell_font , selected_mode , flag
         selected_mode = 0
+        flag = 0
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self )
         self.ui.menu_new.triggered.connect(self.new_game) 
@@ -89,7 +90,7 @@ class MainWindow(QMainWindow):
                     else :
                         self.line_edits[i][j].setText("")
         except:
-            print(" An Error Has Been Accurred " )
+            print("An Error Has Been Accurred")
 
 
     def check(self):
@@ -104,8 +105,11 @@ class MainWindow(QMainWindow):
                             self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
                             self.line_edits[i][x].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")                            
                             return False
-                        else :
+                        elif flag == 0  :
                             self.line_edits[i][j].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
+                        elif flag == 1 :
+                            self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 255, 255);\n""background-color: rgb(20, 20, 20);\n""font: 75 16pt \"MS Shell Dlg 2\";")
+            
             x = 1
             for x in range(1,9) : 
                 num1 = self.line_edits[i][x].text()                 
@@ -121,8 +125,10 @@ class MainWindow(QMainWindow):
                                         self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")    
                                         self.line_edits[i][x].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")                                   
                                     return False
-                                else :
+                                elif flag == 0 :
                                     self.line_edits[i][j].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")           
+                                elif flag == 1 :
+                                    self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 255, 255);\n""background-color: rgb(20, 20, 20);\n""font: 75 16pt \"MS Shell Dlg 2\";")
                                 
                                
         for j in range(0 , 9):      
@@ -136,8 +142,11 @@ class MainWindow(QMainWindow):
                             self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
                             self.line_edits[x][j].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")                        
                             return False
-                        else :
-                            self.line_edits[i][j].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")
+                        elif flag == 0  :
+                                    self.line_edits[i][j].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")           
+                        elif flag == 1 :
+                                    self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 255, 255);\n""background-color: rgb(20, 20, 20);\n""font: 75 16pt \"MS Shell Dlg 2\";")
+            
             x = 1
             for x in range(1,9) : 
                 num1 = self.line_edits[x][j].text()                 
@@ -153,9 +162,10 @@ class MainWindow(QMainWindow):
                                         self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")    
                                         self.line_edits[x][j].setStyleSheet(u"color: rgb(255, 0, 67);\n""background-color: rgb(255, 170, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")                                        
                                     return False
-                                else :
+                                elif flag == 0  :
                                     self.line_edits[i][j].setStyleSheet(u"color: rgb(0, 0, 0);\n""background-color: rgb(255, 255, 255);\n""font: 75 16pt \"MS Shell Dlg 2\";")           
-
+                                elif flag == 1 :
+                                    self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 255, 255);\n""background-color: rgb(20, 20, 20);\n""font: 75 16pt \"MS Shell Dlg 2\";")
 
         array  =  []
         num1 = self.line_edits[i][j]
@@ -192,7 +202,12 @@ class MainWindow(QMainWindow):
         print(solution)
     
     def darkmode(self):
+        global flag 
+        flag = 1 
         self.setPalette(QColor(40 , 40 , 40 ))
+        for i in range(0 , 9):
+            for j in range( 0 ,9 ):
+                self.line_edits[i][j].setStyleSheet(u"color: rgb(255, 255, 255);\n""background-color: rgb(20, 20, 20)")
 
     def lightmode(self):
         self.setPalette(QColor(250 , 250 , 250 ))
