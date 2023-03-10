@@ -70,24 +70,26 @@ class MainWindow(QMainWindow):
 
 
     def open_file(self):
-        file_path = QFileDialog.getOpenFileName(self , "Open File...")[0] #address file ro mide dar khoone 0 az tuple 
-        f = open(file_path , "r")
-        file_text = f.read()
-        rows = file_text.split("\n")
-        puzzle_board = [ [ None for i in range(9)] for j in range(9)]
-        for i in range(len(rows)) :
-            cells = rows[i].split(" ") #--> str
-            for j in range(len(cells)):
-                puzzle_board[i][j] = int(cells[j])
-        for i in range(9):
-            for j in range(9):
-                self.line_edits[i][j].setReadOnly(False)
-                if puzzle_board[i][j] != 0 :
-                    self.line_edits[i][j].setText(str(puzzle_board[i][j]))
-                    self.line_edits[i][j].setReadOnly(True)
-                else :
-                    self.line_edits[i][j].setText("")
-
+        try :
+            file_path = QFileDialog.getOpenFileName(self , "Open File...")[0] #address file ro mide dar khoone 0 az tuple 
+            f = open(file_path , "r")
+            file_text = f.read()
+            rows = file_text.split("\n")
+            puzzle_board = [ [ None for i in range(9)] for j in range(9)]
+            for i in range(len(rows)) :
+                cells = rows[i].split(" ") #--> str
+                for j in range(len(cells)):
+                    puzzle_board[i][j] = int(cells[j])
+            for i in range(9):
+                for j in range(9):
+                    self.line_edits[i][j].setReadOnly(False)
+                    if puzzle_board[i][j] != 0 :
+                        self.line_edits[i][j].setText(str(puzzle_board[i][j]))
+                        self.line_edits[i][j].setReadOnly(True)
+                    else :
+                        self.line_edits[i][j].setText("")
+        except:
+            print(" An Error Has Been Accurred " )
 
 
     def check(self):
@@ -180,8 +182,9 @@ class MainWindow(QMainWindow):
             self.line_edits[i][j].setText("")
 
         if self.check() == True :
-             msg_box = QMessageBox("you won")
-
+             msg_box = QMessageBox()
+             msg_box.setText("🎇you won🎇")
+             msg_box.exec()
 
     def solve_puzzle(self):
         solution = puzzle.solve()
